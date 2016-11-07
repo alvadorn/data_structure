@@ -1,7 +1,9 @@
 project(DataStructures C)
 
 cmake_minimum_required(VERSION 2.6.0)
+set(CMAKE_C_FLAGS "-Wall -Werror -Wpedantic -std=c11")
 
-include_directories(${CMAKE_CURRENT_SOURCE_DIR}/include)
-add_library(LinkedList STATIC src/linked_list.c)
-add_library(Queue STATIC src/queue.c)
+enable_testing()
+
+add_subdirectory(src)
+add_subdirectory(test)

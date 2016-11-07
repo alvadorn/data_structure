@@ -1,0 +1,7 @@
+{
+  "execPath": "/usr/bin/gcc",
+  "gccDefaultCFlags": "-Wall -fsyntax-only -C",
+  "gccErrorLimit": 15,
+  "gccIncludePaths": ".,./include,./src",
+  "gccSuppressWarnings": true
+}
