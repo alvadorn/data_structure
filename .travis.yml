@@ -1,6 +1,6 @@
 language: c
 compiler:
-  - gcc-6
+  - gcc
   - clang
 
 script:
