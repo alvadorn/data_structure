@@ -61,10 +61,11 @@ uint64_t Queue__size(Queue *queue) {
   return queue->size;
 }
 
-void Queue__delete(Queue *queue) {
+Queue *Queue__delete(Queue *queue) {
   assert(queue != NULL);
   Queue__dequeue_all(queue);
   free(queue);
+  return NULL;
 }
 
 

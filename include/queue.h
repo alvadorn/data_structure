@@ -19,7 +19,7 @@ struct queue {
   void (* enqueue)(Queue *, void *);
   void *(* dequeue)(Queue *);
   void (* dequeue_all)(Queue *);
-  void (* delete)(Queue *);
+  Queue *(* delete)(Queue *);
   uint64_t (* size)(Queue *);
 };
 
@@ -29,7 +29,7 @@ Queue *Queue__create(void);
 void Queue__enqueue(Queue *, void *);
 void *Queue__dequeue(Queue *);
 void Queue__dequeue_all(Queue *);
-void Queue__delete(Queue *);
+Queue *Queue__delete(Queue *);
 uint64_t Queue__size(Queue *);
 void __destroy(struct __queue_node *);
 

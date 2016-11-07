@@ -9,7 +9,8 @@ static void create_queue_and_delete() {
   Queue *q = queue.create();
   assert_non_null(q);
   assert_int_equal(queue.size(q), 0);
-  queue.delete(q);
+  q = queue.delete(q);
+  assert_null(q);
 }
 
 int main() {
