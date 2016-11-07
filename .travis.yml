@@ -2,9 +2,16 @@ language: c
 compiler:
   - gcc
   - clang
-
+addons:
+  apt:
+    sources:
+      - ubuntu-toolchain-r-test
+    packages:
+      - gcc-4.8
+      - gcc-4.9
+      - gcc-5
 script:
-  - mkdir build
-  - cd build
-  - cmake .. && make
+  - mkdir build && cd build
+  - cmake ..
+  - make VERBOSE=1
   - ctest -V
