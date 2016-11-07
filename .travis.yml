@@ -1,7 +1,10 @@
 language: c
 compiler:
-  - gcc
   - clang
+  - gcc
+  - gcc-5
+  - gcc-4.8
+  - gcc-4.9
 addons:
   apt:
     sources:
@@ -10,7 +13,14 @@ addons:
       - gcc-4.8
       - gcc-4.9
       - gcc-5
+      - valgrind
 script:
+  - wget https://cmocka.org/files/1.1/cmocka-1.1.0.tar.xz
+  - tar -xvf cmocka-1.1.0.tar.xz
+  - cd cmocka-1.1.0
+  - mkdir build && cd build
+  - cmake .. && make && sudo make install
+  - cd ../..
   - mkdir build && cd build
   - cmake ..
   - make VERBOSE=1
