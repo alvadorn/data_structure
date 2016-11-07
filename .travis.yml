@@ -1,0 +1,9 @@
+language: c
+compiler:
+  - gcc-6
+  - clang
+
+script:
+  - mkdir build
+  - cd build
+  - cmake .. && make
