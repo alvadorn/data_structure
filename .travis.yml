@@ -8,16 +8,20 @@ compiler:
 cache:
   directories:
     - cmocka-1.1.0
-addons:
+addons: &gcc
   apt:
     sources:
       - ubuntu-toolchain-r-test
-      - debian-sid
     packages:
       - gcc-4.8
       - gcc-4.9
       - gcc-5
       - gcc-6
+addons: &valgrind
+  apt:
+    sources:
+      - debian-sid
+    packages:
       - valgrind
 script:
   - mkdir debug && cd debug
