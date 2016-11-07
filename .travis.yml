@@ -18,8 +18,12 @@ addons:
       - gcc-5
       - valgrind
 script:
-  - mkdir build && cd build
-  - cmake ..
+  - mkdir debug && cd debug
+  - cmake -DTRAVIS=ON -DCMAKE_BUILD_TYPE=Debug ..
+  - make VERBOSE=1
+  - ctest -V
+  - cd .. && mkdir release && cd release
+  - cmake -DTRAVIS=ON -DCMAKE_BUILD_TYPE=Release ..
   - make VERBOSE=1
   - ctest -V
 before_install:
