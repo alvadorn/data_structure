@@ -2,6 +2,7 @@
 #define __LINKED_LIST_H__
 
 #include <stdint.h>
+#include <stdbool.h>
 
 struct __ll_node {
   void *value;
@@ -17,19 +18,25 @@ typedef struct LinkedList {
 
 struct linked_list {
   LinkedList *(* create)(void);
-  void (* destroy)(LinkedList *, void *);
+  void (* destroy)(LinkedList *, void *, bool (*)(void *, void *));
   void (* destroy_all)(LinkedList *);
   void (* add)(LinkedList *, void *);
-  void (* delete)(LinkedList *);
+  LinkedList *(* delete)(LinkedList *);
+  uint64_t (* size)(LinkedList *);
+  void *(* find)(LinkedList *, void *, bool (*)(void *, void *));
 };
 
 extern struct linked_list linked_list;
 
 LinkedList *LinkedList__create(void);
-void LinkedList__destroy(LinkedList *, void *);
+void LinkedList__destroy(LinkedList *, void *, bool (*)(void *, void *));
 void LinkedList__destroy_all(LinkedList *);
 void LinkedList__add(LinkedList *, void *);
-void LinkedList__delete(LinkedList *);
+LinkedList *LinkedList__delete(LinkedList *);
+void LinkedList__iterator(LinkedList *);
+void *LinkedList__getNext(LinkedList *);
+void *LinkedList__find(LinkedList *, void *, bool (*)(void *, void *));
+uint64_t LinkedList__size(LinkedList *);
 struct __ll_node * __destroy_node(struct __ll_node *);
 
 #endif // __LINKED_LIST_H__
