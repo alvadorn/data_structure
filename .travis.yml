@@ -5,6 +5,9 @@ compiler:
   - gcc-5
   - gcc-4.8
   - gcc-4.9
+cache:
+  directories:
+    - cmocka-1.1.0
 addons:
   apt:
     sources:
