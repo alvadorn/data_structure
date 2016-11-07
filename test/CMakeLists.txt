@@ -11,6 +11,7 @@ foreach(file IN LISTS SRC)
   add_test(${file_name}_valgrind valgrind
            --error-exitcode=1 --read-var-info=yes
            --leak-check=full --show-leak-kinds=all
+           --help
            ./${file_name})
   target_link_libraries(${file_name} ${file_test} cmocka)
 endforeach(file)
