@@ -22,6 +22,7 @@ void Queue__enqueue(Queue *queue, void *value) {
   if (queue != NULL) {
     struct __queue_node *tmp = (struct __queue_node *) malloc (sizeof(struct __queue_node));
     tmp->next = NULL;
+    tmp->value = value;
     if (queue->size == 0) {
       queue->queue = tmp;
     } else {
